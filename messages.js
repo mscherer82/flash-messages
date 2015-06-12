@@ -24,8 +24,12 @@ FlashMessages = {
   sendInfo: function(message, options) {
     sendMessage(message, 'alert-info', options);
   },
-  clear: function() {
-    flashMessages.remove({seen: true});
+  clear: function(namespace) {
+  	var query = {seen: true};
+	if(namespace) {
+		query = _.extend(query, {"options.namespace": namespace});
+	}
+    flashMessages.remove(query);
   },
   configure: function(options) {
     this.options = this.options || {};

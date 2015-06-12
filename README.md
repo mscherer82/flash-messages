@@ -66,3 +66,21 @@ You can also set individual options on messages. This will override global confi
   FlashMessages.sendError("Message", { hideDelay: 2000 });
   FlashMessages.sendSuccess("Message", { autoHide: true, hideDelay: 8000 });
 ```
+
+##Namespaces
+
+If you want to provide multiple flash messages on the same page, you can add a namespace:
+
+```javascript
+  FlashMessages.sendWarning("Message", { autoHide: false, namespace: "editProfileForm" });
+```
+
+```javascript
+  {{> flashMessages namespace="editProfileForm}}
+```
+
+```javascript
+  FlashMessages.clear("editProfileForm);
+```
+
+

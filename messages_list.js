@@ -1,10 +1,16 @@
 Template.flashMessages.helpers({
-  messages: function () {
-    if (flashMessages.find().count() && FlashMessages.options.autoScroll)
+  messages: function (namespace) {
+
+	var query = {};
+	if(namespace) {
+		query = {"options.namespace": namespace};
+	}
+
+    if (flashMessages.find(query).count() && FlashMessages.options.autoScroll)
       $('html, body').animate({
         scrollTop: 0
       }, 200);
-    var messages = flashMessages.find().fetch();
+    var messages = flashMessages.find(query).fetch();
     $.each(messages, function(index, value) {
       value.group = value.message instanceof Array;
     });
