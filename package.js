@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'mrt:flash-messages',
+  name: 'mscherer82:flash-messages',
   summary: 'A package to display flash messages to the user',
   version: '1.0.0',
   git: 'https://github.com/camilosw/flash-messages.git'
